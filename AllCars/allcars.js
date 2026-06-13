@@ -1,6 +1,6 @@
 // Податоци за автомобилите (ПОПРАВЕНА ПАТЕКА ДО ПОРШЕТО)
 const cars = [
-{ name: "Porsche 911 Carrera", price: 900, isNew: true, img: "./AllCars-sliki/porrse.jpg", link: "../Porsche911Carrera/porse911.html" },
+{ name: "Porsche 911 Carrera", price: 900, isNew: true, img: "AllCars-sliki/porrse.jpg", link: "../Porsche911Carrera/porse911.html" },
 { name: "Mercedes SL63 Cabrio", price: 800, isNew: true, img: "./AllCars-sliki/merc.png" },
 { name: "McLaren 765LT", price: 1600, isNew: true, img: "./AllCars-sliki/mcclaren.jpg" },
 { name: "Mercedes S63 Cabrio", price: 700, isNew: false, img: "./AllCars-sliki/merr.jpg" },
