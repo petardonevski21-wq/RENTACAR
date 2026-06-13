@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche 911 Carrera - Configurator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="porse911.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../LOGO/favicon_io/favicon-32x32.png">
+    <script src="porse911.js" defer></script>
+</head>
+<body>
+
+    <nav class="sticky-nav">
+        <a href="../index.html" class="sticky-logo">Velora</a>
+        <ul class="sticky-links">
+            <li><a href="#">Car types</a></li>
+            <li><a href="#">Car brands</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="../About/about.html">About us</a></li>
+            <li><a href="../Contact/contact.html">Contact us</a></li>
+        </ul>
+        <div class="sticky-actions">
+            <div class="sticky-search">
+                <svg class="sticky-search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/></svg>
+                <input type="text" placeholder="Search...">
+            </div>
+            <button class="sticky-btn">Book Now</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <span class="subtitle">PORSCHE 911</span>
+            <h1 class="title">CARRERA</h1>
+        </header>
+
+        <section class="configurator">
+            <div class="car-preview">
+                <button class="arrow-btn prev-btn" id="prevBtn">&#10094;</button>
+                <img src="Porsesliki/porseprva.jpg" alt="Porsche 911" id="mainCarImage">
+                <button class="arrow-btn next-btn" id="nextBtn">&#10095;</button>
+            </div>
+
+            <div class="config-options">
+                <div class="option-group">
+                    <h3>EXTERIOR PAINT</h3>
+                    <div class="color-swatches" id="exteriorColors">
+                        <div class="swatch active" style="background-color: #e0e0e0;" data-color-name="Carrera White Metallic"></div>
+                        <div class="swatch" style="background-color: #111111;" data-color-name="Black"></div>
+                        <div class="swatch" style="background-color: #ba2121;" data-color-name="Guards Red"></div>
+                        <div class="swatch" style="background-color: #1a3c6b;" data-color-name="Gentian Blue Metallic"></div>
+                    </div>
+                    <p class="selected-text" id="exteriorColorText">Carrera White Metallic</p>
+                </div>
+
+                <div class="option-group">
+                    <h3>WHEEL DESIGN</h3>
+                    <div class="wheel-options">
+                        <div class="wheel-card active">
+                            <div class="wheel-icon"></div>
+                            <span>20/21-inch Carrera S Wheels</span>
+                            <span class="check-icon">✓</span>
+                        </div>
+                        <div class="wheel-card">
+                            <div class="wheel-icon"></div>
+                            <span>RS Spyder Design Wheels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <h3>INTERIOR LEATHER</h3>
+                    <div class="color-swatches" id="interiorColors">
+                        <div class="swatch active" style="background-color: #222222;" data-color-name="Standard Interior in Black"></div>
+                        <div class="swatch" style="background-color: #4a362a;" data-color-name="Truffle Brown Leather"></div>
+                        <div class="swatch" style="background-color: #d8c8bd;" data-color-name="Mojave Beige Leather"></div>
+                    </div>
+                    <p class="selected-text" id="interiorColorText">Standard Interior in Black</p>
+                </div>
+
+                <div class="checkout-section">
+                    <div class="price-row">
+                        <span class="msrp">Price a day</span>
+                        <span class="price">$1100</span>
+                    </div>
+                    <button class="reserve-btn">RESERVE THIS PORSCHE</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="specifications">
+            <div class="spec-item">
+                <span class="spec-label">ENGINE</span>
+                <span class="spec-value">3.0L Boxer</span>
+                <span class="spec-desc">Twin-Turbo 6-Cylinder</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">PERFORMANCE</span>
+                <span class="spec-value">379 HP</span>
+                <span class="spec-desc">Maximum Power (hp)</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">ACCELERATION</span>
+                <span class="spec-value">4.0s</span>
+                <span class="spec-desc">0-60 mph (Sport Chrono)</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">TOP SPEED</span>
+                <span class="spec-value">182 mph</span>
+                <span class="spec-desc">Track Speed (mph)</span>
+            </div>
+        </section>
+
+        <section class="similar-cars">
+            <h2 class="section-title">SIMILAR CARS</h2>
+            <div class="cars-grid">
+                <div class="car-card">
+                    <img src="Porsesliki/ss.png">
+                    <h4>Porsche 718 Cayman S</h4>
+                    <p>From $80,300</p>
+                </div>
+                <div class="car-card">
+                    <img src="Porsesliki/r8.avif" alt="Audi R8">
+                    <h4>Audi R8 V10</h4>
+                    <p>From $158,600</p>
+                </div>
+                <div class="car-card">
+                    <img src="Porsesliki/merc.png" alt="AMG GT">
+                    <h4>Mercedes-AMG GT</h4>
+                    <p>From $119,650</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Velora</h2>
+                <p>&copy; 2024 AUREUS LUXE AUTOMOTIVE GROUP. ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Fleet Logistics</a>
+                <a href="#">Investor Relations</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

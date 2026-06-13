@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    padding: 40px;
+}
+
+/* Наслов */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sticky-nav {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1370px;
+    height: 72px;
+    padding: 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #dbdbdb 0%, #ececec 15%, #ececec 85%, #d1d1d1 100%);
+    border-radius: 6px;
+    z-index: 999999;
+    opacity: 1;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.04);
+    backdrop-filter: blur(10px);
+}
+
+.sticky-nav.active {
+    top: 16px;
+    opacity: 1;
+}
+
+.sticky-links {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+}
+
+.sticky-links a {
+    text-decoration: none;
+    color: #1c1c1c;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.sticky-links a:hover {
+    color: #c04212;
+}
+
+.sticky-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: #c04212;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+}
+
+.sticky-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.sticky-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.sticky-search {
+    width: 210px;
+    height: 42px;
+    background: #cfcfcf;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 4px;
+}
+
+.sticky-search-icon {
+    width: 14px;
+    height: 14px;
+    fill: #555;
+    margin-right: 10px;
+}
+
+.sticky-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #222;
+    font-size: 14px;
+}
+
+.sticky-btn {
+    height: 42px;
+    padding: 0 42px;
+    border: none;
+    background: #c04212;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.sticky-btn:hover {
+    background: #a8370d;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(192,66,18,0.25);
+}
+.nav-logo, .sticky-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-family: var(--font-serif); 
+    transition: color 0.3s ease;
+}
+.nav-logo {
+    color: var(--text-light); 
+}
+
+.nav-logo:hover {
+    color: var(--primary-color);
+}
+
+.sticky-logo {
+    color: #1c1c1c; 
+}
+
+.sticky-logo:hover {
+    color: var(--primary-color);
+}
+.sticky-links a {
+    text-decoration: none;
+    color: #1c1c1c;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sticky-links a:hover {
+    color: #c04212;
+    transform: translateY(-2px);
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 28px;
+    color: #222;
+    letter-spacing: 1px;
+    margin-top: 100px;
+}
+
+/* Главен контејнер */
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+/* Странично мени (Филтри) */
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    padding-right: 30px;
+    border-right: 1px dotted #ccc;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.select-wrapper, .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #666;
+    outline: none;
+    background-color: #fff;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    width: 50%;
+    text-align: center;
+}
+
+.clear-btn {
+    background-color: #c04212;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.clear-btn:hover {
+    background-color: #a0350d;
+}
+
+/* Мрежа со автомобили */
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px 30px;
+    width: 100%;
+}
+
+/* Картичка за автомобил */
+.car-card {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    transition: border-bottom-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    background: #fff;
+}
+
+.car-card:hover {
+    border-bottom-color: #c04212;
+    transform: translateY(-5px);
+}
+
+.car-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.car-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+}
+
+.badge-new {
+    background-color: #c04212;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.car-price {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.car-image {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-top: auto;
+}
+
+/* Респонзивност за помали екрани */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px dotted #ccc;
+        padding-right: 0;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+    .input-group input {
+        width: 100%;
+    }
+}

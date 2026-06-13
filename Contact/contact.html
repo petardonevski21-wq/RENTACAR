@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../LOGO/favicon_io/favicon-32x32.png">
+    <link rel="stylesheet" href="contact.css">
+    <script src="contact.js" defer></script>
+</head>
+<body>
+
+   <nav class="sticky-nav">
+        <a href="../index.html" class="sticky-logo">Velora</a>
+        
+        <ul class="sticky-links">
+            <li><a href="#">Car types</a></li>
+            <li><a href="#">Car brands</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="../About/about.html">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+        
+        <div class="sticky-actions">
+            <div class="sticky-search">
+                <svg class="sticky-search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/></svg>
+                <input type="text" placeholder="Search...">
+            </div>
+            <button class="sticky-btn">Book Now</button>
+        </div>
+        
+        <!-- Бургер копче (Кое анимира во 'X' кога е отворено) -->
+        <div class="burger-menu" id="burgerToggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <div class="contact-overlay"></div>
+        <div class="contact-container">
+            
+            <div class="contact-info animate-on-scroll fade-right">
+                <span class="accent-subtitle">GET IN TOUCH</span>
+                <h1 class="contact-title">Contact Us</h1>
+                <p class="contact-description">
+                    Experience the zenith of automotive luxury. Our concierge team is standing by to curate your next journey.
+                </p>
+
+                <div class="info-cards">
+                    <div class="info-card animate-on-scroll fade-up delay-1">
+                        <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="card-text">
+                            <span class="card-label">Locations</span>
+                            <p>1200 Velocity Drive,<br>Miami, FL 33101</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card animate-on-scroll fade-up delay-2">
+                        <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <div class="card-text">
+                            <span class="card-label">RESERVATIONS</span>
+                            <p>+1 (800) VELORA-X</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card animate-on-scroll fade-up delay-3">
+                        <div class="card-icon"><i class="fa-solid fa-at"></i></div>
+                        <div class="card-text">
+                            <span class="card-label">EMAIL ADRESS</span>
+                            <p>elite@velora.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper animate-on-scroll fade-left">
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>FULL NAME</label>
+                            <input type="text" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL ADDRESS</label>
+                            <input type="email" placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>INTERESTED FLEET</label>
+                        <select>
+                            <option>Aventador S Roadster</option>
+                            <option>Ferrari F8 Tributo</option>
+                            <option>Rolls-Royce Cullinan</option>
+                            <option>Porsche 911 GT3</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>YOUR INQUIRY</label>
+                        <textarea rows="3" placeholder="Describe your bespoke requirements..."></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy-policy">
+                        <label for="privacy-policy">I agree to the privacy policy and membership terms.</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        TRANSMIT INQUIRY <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <p class="form-footer">PRECISION ENGINEERED COMMUNICATION</p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+</body>
+</html>

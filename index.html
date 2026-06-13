@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora Rent Car</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="LOGO/favicon_io/favicon-32x32.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+
+<!-- ГЛАВНА НАВИГАЦИЈА (Во Херото) -->
+<nav class="navbar">
+    <a href="../index.html" class="nav-logo">Velora</a>
+    
+    <div class="nav-links">
+        <a href="#">Car types</a>
+        <a href="#">Car brands</a>
+        <a href="#">Locations</a>
+        <a href="About/about.html">About us</a>
+        <a href="Contact/contact.html">Contact us</a>
+        
+        <!-- Знаменцата се појавуваат тука на мобилен -->
+        <div class="mobile-lang-flags">
+            <span>🇺🇸</span>
+            <span>🇲🇰</span>
+        </div>
+    </div>
+
+    <div class="lang-flags">
+        <span>🇺🇸</span>
+        <span>🇲🇰</span>
+    </div>
+
+    <!-- НОВО: Бургер икона за мобилни уреди -->
+    <div class="burger-menu" id="burgerToggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</nav>
+
+        <!-- СТИКИ НАВИГАЦИЈА (Што се појавува на скрол) -->
+        <nav class="sticky-nav">
+            <a href="../index.html" class="sticky-logo">Velora</a>
+            <ul class="sticky-links">
+                <li><a href="#">Car types</a></li>
+                <li><a href="#">Car brands</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="About/about.html">About us</a></li>
+                <li><a href="Contact/contact.html"">Contact us</a></li>
+            </ul>
+
+            <div class="sticky-actions">
+                <div class="sticky-search">
+                    <svg class="sticky-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <button class="sticky-btn magnetic-btn">
+                    Book now
+                </button>
+            </div>
+        </nav>
+
+        <div class="main-content">
+            <h2 class="gsap-text">MEET OUR NEW</h2>
+            <h1 class="gsap-text">McLaren</h1>
+            <p class="gsap-text">The new McLaren stands as one of the most iconic supercars of the modern era, combining aggressive design with extraordinary performance. Powered by a naturally aspirated V12 engine.</p>
+            <div class="gsap-btn-wrap">
+                <a href="#" class="btn btn-outline magnetic-btn">Learn more</a>
+            </div>
+        </div>
+
+        <div class="bottom-content">
+            <h3 class="gsap-bottom">Find the perfect vehicle for your journey</h3>
+            <div class="gsap-bottom">
+                <a href="AllCars/allcars.html" class="btn btn-solid magnetic-btn">Find your car</a>
+            </div>
+        </div>
+
+        <div class="slider-dots">
+            <div class="dot"></div>
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <section class="models-section">
+        <div class="models-container">
+            <div class="model-row gsap-row">
+                <div class="model-bg" style="background-image: url('../RentCar/sliki/MODELI/SUV.png'); background-position: center 60%;"></div>
+                <div class="model-content">
+                    <h2 class="model-title">SUV</h2>
+                </div>
+            </div>
+
+            <div class="model-row gsap-row">
+                <div class="model-bg" style="background-image: url('../RentCar/sliki/MODELI/LUXURY.png'); background-position: center center;"></div>
+                <div class="model-content">
+                    <h2 class="model-title">Luxury</h2>
+                </div>
+            </div>
+
+            <div class="model-row gsap-row">
+                <div class="model-bg" style="background-image: url('../RentCar/sliki/MODELI/CONVERTIBLE.png'); background-position: center 70%;"></div>
+                <div class="model-content">
+                    <h2 class="model-title">Convertible</h2>
+                </div>
+            </div>
+
+            <div class="model-row gsap-row">
+                <div class="model-bg" style="background-image: url('../RentCar/sliki/MODELI/MINIVAN.png'); background-position: center 40%;"></div>
+                <div class="model-content">
+                    <h2 class="model-title">Minivan</h2>
+                </div>
+            </div>
+
+            <div class="model-row gsap-row">
+                <div class="model-bg" style="background-image: url('../RentCar/sliki/MODELI/SPORTCAR.png'); background-position: center 60%;"></div>
+                <div class="model-content">
+                    <h2 class="model-title">Sport car</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newest-models-section">
+        <h2 class="newest-title">Our newest models</h2>
+        
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="car-card">
+                    <span class="badge">NEW</span>
+                    <img src="sliki/NOVIMODELI/porsche.png" alt="Porsche">
+                    <h3 class="car-name">Porsche</h3>
+                    <p class="car-price">$300/day</p>
+                </div>
+                <div class="car-card">
+                    <span class="badge">NEW</span>
+                    <img src="sliki/NOVIMODELI/aston.png" alt="Aston Martin">
+                    <h3 class="car-name">Aston Martin</h3>
+                    <p class="car-price">$450/day</p>
+                </div>
+                <div class="car-card">
+                    <span class="badge">NEW</span>
+                    <img src="sliki/NOVIMODELI/e400.png" alt="E400">
+                    <h3 class="car-name">Mercedes E400</h3>
+                    <p class="car-price">$500/day</p>
+                </div>
+                <div class="car-card">
+                    <span class="badge">NEW</span>
+                    <img src="sliki/NOVIMODELI/x5.png" alt="BMW X5">
+                    <h3 class="car-name">BMW X5</h3>
+                    <p class="car-price">$650/day</p>
+                </div>
+                <div class="car-card">
+                    <span class="badge">NEW</span>
+                    <img src="sliki/NOVIMODELI/range.png" alt="Range Rover">
+                    <h3 class="car-name">Range Rover</h3>
+                    <p class="car-price">$600/day</p>
+                </div>
+                <div class="car-card">
+                    <span class="badge">NEW</span>
+                    <img src="sliki/NOVIMODELI/a8.png" alt="Audi A8">
+                    <h3 class="car-name">Audi A8</h3>
+                    <p class="car-price">$350/day</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-wrapper">
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+
+        <div class="btn-wrap-center">
+            <a href="AllCars/allcars.html" class="btn btn-solid btn-rect magnetic-btn">ALL CARS</a>
+        </div>
+    </section>
+
+    <section class="rent-section">
+        <div class="rent-top-info">
+            <div class="info-box">
+                <span>🌍</span>
+                <p>Global reach<br>2,000+ SIXT<br>stations in over<br>105 countries</p>
+            </div>
+            <div class="info-box">
+                <span>🚘</span>
+                <p>From high-end<br>convertibles to<br>premium SUVs</p>
+            </div>
+            <div class="info-box">
+                <span>✔️</span>
+                <p>Stress-free,<br>trustworthy, no<br>hidden costs</p>
+            </div>
+        </div>
+
+        <div class="rent-content">
+            <h2 class="rent-title">Rent cars in the whole world!</h2>
+            <div class="rent-filters">
+                <div class="filter-box">
+                    <label>Category</label>
+                    <select>
+                        <option>All cars</option>
+                        <option>SUV</option>
+                        <option>Sport car</option>
+                        <option>Convertible</option>
+                        <option>Luxury</option>
+                        <option>Minivan</option>
+                    </select>
+
+                    <div class="category-list">
+                        <div class="category-item"><span>SUV</span></div>
+                        <div class="category-item"><span>Sport car</span></div>
+                        <div class="category-item"><span>Convertible</span></div>
+                        <div class="category-item"><span>Minivan</span></div>
+                        <div class="category-item"><span>Luxury</span></div>
+                    </div>
+                </div>
+
+                <div class="filter-box">
+                    <label>Brand</label>
+                    <select>
+                        <option>Audi</option>
+                        <option>BMW</option>
+                        <option>Porsche</option>
+                        <option>Mercedes</option>
+                        <option>Range Rover</option>
+                    </select>
+                </div>
+
+                <div class="filter-box">
+                    <label>Model</label>
+                    <select>
+                        <option>RSQ8</option>
+                        <option>X5</option>
+                        <option>911</option>
+                        <option>A8</option>
+                    </select>
+                </div>
+<a href="AllCars/allcars.html" class="find-btn magnetic-btn">
+    Find your car →
+</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bestsellers-wrapper">
+        <div class="video-hero-top">
+            <video src="../RentCar/video/videomerdzo.mp4" autoplay loop muted playsinline class="bg-video"></video>
+            <div class="video-overlay"></div>
+            <div class="hero-text-content">
+                <span class="eyebrow">CURATED EXCELLENCE</span>
+                <h2 class="main-title">THE BEST SELLERS</h2>
+                <p class="hero-desc">Experience the pinnacle of automotive engineering with our most<br>requested luxury vehicles.</p>
+            </div>
+        </div>
+
+        <div class="bestsellers-white-bg">
+            <div class="cards-grid">
+                <div class="car-card">
+                    <div class="card-img-container">
+                        <span class="badge badge-primary">NEW ARRIVAL</span>
+                        <img src="sliki/bestsellers/apex.jpg" alt="Apex S-Series">
+                    </div>
+                    <div class="card-info">
+                        <span class="car-type">SPORT</span>
+                        <h3 class="car-name">APEX S-SERIES</h3>
+                        <div class="car-specs">
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 320 KM/H</span>
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> 650 HP</span>
+                        </div>
+                        <hr class="card-divider">
+                        <div class="card-footer">
+                            <div class="price-wrap">
+                                <span class="starting">STARTING AT</span>
+                                <div class="price">$599<span>/DAY</span></div>
+                            </div>
+                            <a href="#" class="rent-btn">RENT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="card-img-container">
+                        <span class="badge badge-dark">BESTSELLER</span>
+                        <img src="sliki/bestsellers/titan.jpg" alt="Titan VX8">
+                    </div>
+                    <div class="card-info">
+                        <span class="car-type">SUV</span>
+                        <h3 class="car-name">TITAN VX8</h3>
+                        <div class="car-specs">
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 7 SEATS</span>
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> 4WD</span>
+                        </div>
+                        <hr class="card-divider">
+                        <div class="card-footer">
+                            <div class="price-wrap">
+                                <span class="starting">STARTING AT</span>
+                                <div class="price">$450<span>/DAY</span></div>
+                            </div>
+                            <a href="#" class="rent-btn">RENT NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="card-img-container">
+                        <img src="sliki/bestsellers/hybrid.webp" alt="Zenith Prestige">
+                    </div>
+                    <div class="card-info">
+                        <span class="car-type">EXECUTIVE</span>
+                        <h3 class="car-name">BMW I7</h3>
+                        <div class="car-specs">
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-9 5 18 3-9h5"></path></svg> HYBRID</span>
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> SECURE+</span>
+                        </div>
+                        <hr class="card-divider">
+                        <div class="card-footer">
+                            <div class="price-wrap">
+                                <span class="starting">STARTING AT</span>
+                                <div class="price">$325<span>/DAY</span></div>
+                            </div>
+                            <a href="#" class="rent-btn">RENT NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="velocity-standard-section">
+        <div class="velocity-container">
+            <div class="velocity-content reveal-left">
+                <h2 class="velocity-heading">The Velocity Standard</h2>
+                <div class="velocity-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <polyline points="9 11 11 13 15 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Premium Maintenance</h3>
+                            <p>Every vehicle undergoes a 200-point inspection after each rental to ensure mechanical excellence.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Concierge Delivery</h3>
+                            <p>We deliver your chosen vehicle directly to your terminal or residence, 24/7 across major hubs.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2M19.07 4.93l-1.41 1.41M20 12h2M6.34 17.66l1.41-1.41M17.66 17.66l-1.41-1.41M12 12l4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Unlimited Velocity</h3>
+                            <p>No mileage restrictions on our performance fleet. Drive as far as your destination takes you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="velocity-visual reveal-right">
+                <div class="image-wrapper">
+                    <img src="sliki/bestsellers/pov.avif" alt="The Velocity Standard Performance" class="velocity-img">
+                    <div class="satisfaction-badge">
+                        <div class="badge-number">99.8%</div>
+                        <div class="badge-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="destinations-section">
+        <h4 class="section-subtitle">Select place</h4>
+        <div class="places-grid active" id="cities">
+            <div class="place-card">
+                <h5 class="mesta">Dubai</h5>
+                <span class="place-title">Dubai</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/Dubai.jpg" alt="Dubai" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">Zurich</h5>
+                <span class="place-title">Zurich Switzerland</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/zuurich.avif" alt="Zurich" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">Geneva</h5>
+                <span class="place-title">Geneva, Switzerland</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/geneva.jpg" alt="Geneva" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">Singapore</h5>
+                <span class="place-title">Singapore</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/singapore.jpg" alt="Singapore" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">Monaco</h5>
+                <span class="place-title">Monaco</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/monaco.jpg" alt="Monaco" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">London</h5>
+                <span class="place-title">London</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/london.jpg" alt="London" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">Qatar</h5>
+                <span class="place-title">Maldives</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/qatar.jpg" alt="Maldives" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">Monte Carlo</h5>
+                <span class="place-title">Maldives</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/monte carlo.jpg" alt="Maldives" class="place-img">
+                </div>
+            </div>
+            <div class="place-card">
+                <h5 class="mesta">Hong Kong</h5>
+                <span class="place-title">Maldives</span>
+                <div class="img-wrapper">
+                    <img src="sliki/Select Place/hong kong.jpg" alt="Maldives" class="place-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <div class="brands-hero">
+            <div class="brands-content animate-left">
+                <h4 class="section-subtitle">Our Brands</h4>
+                <p class="brands-text">
+                    We proudly work with some of the world's most trusted automotive brands, offering a diverse fleet that fits every need. From premium luxury cars to reliable everyday models, our selection is built to deliver comfort, performance, and safety on every journey.
+                </p>
+            </div>
+            <div class="brands-image-wrapper animate-right">
+                <img src="sliki/Brands/Q8.png" alt="Featured Premium Car" class="hero-car-img">
+            </div>
+        </div>
+
+        <h3 class="brands-title animate-fade">Brands</h3>
+
+        <div class="brands-grid">
+            <div class="brand-card"><img src="sliki/Brands/audi.png" alt="Audi"></div>
+            <div class="brand-card"><img src="sliki/Brands/bmw.png" alt="BMW"></div>
+            <div class="brand-card"><img src="sliki/Brands/mercedes.png" alt="Mercedes-Benz"></div>
+            <div class="brand-card"><img src="sliki/Brands/bentley.png" alt="Bentley"></div>
+            <div class="brand-card"><img src="sliki/Brands/bugatti.png" alt="Bugatti"></div>
+            <div class="brand-card"><img src="sliki/Brands/ferrari.png" alt="Ferrari"></div>
+            <div class="brand-card"><img src="sliki/Brands/lambo.png" alt="Lamborghini"></div>
+            <div class="brand-card"><img src="sliki/Brands/porsche.png" alt="Porsche"></div>
+            <div class="brand-card"><img src="sliki/Brands/mclaren.png" alt="McLaren"></div>
+            <div class="brand-card"><img src="sliki/Brands/jaguar.png" alt="Jaguar"></div>
+            <div class="brand-card"><img src="sliki/Brands/rolls royce.png" alt="Rolls Royce"></div>
+            <div class="brand-card"><img src="sliki/Brands/masserati.png" alt="Maserati"></div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-overlay"></div>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contact:</h4>
+                    <ul class="footer-links">
+                        <li>Gmail: petardonevski21@gmail.com</li>
+                        <li>Number/Viber: 078500000</li>
+                        <li>Instagram: rentacars.com</li>
+                    </ul>
+                    <form class="newsletter-form">
+                        <input type="text" placeholder="Sent Email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">></button>
+                    </form>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Terms and conditions</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Social Networks:</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Popular cities:</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Monaco</a></li>
+                        <li><a href="#">Rome</a></li>
+                        <li><a href="#">Milan</a></li>
+                        <li><a href="#">Monte Carlo</a></li>
+                        <li><a href="#">Dubai</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

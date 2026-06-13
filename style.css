@@ -1,0 +1,1884 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #c04212;
+    --text-dark: #f5f5f5;
+    --text-light: #f5f5f5;
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --bg-dark: #0b0b0b;
+    --primary-accent: #c04212;
+    --smooth-zoom: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --smooth-fade: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body, html {
+    width: 100%;
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+/* --- ГЛАВЕН КОНТЕЈНЕР И ПОЗАДИНА --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(sliki/hero/hero.png);
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transform: scale(1.1);
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(116, 96, 61, 0.8) 0%, rgba(160, 132, 77, 0.1) 50%, rgba(150, 150, 150, 0.4) 100%);
+    z-index: 2;
+}
+
+/* --- НАВИГАЦИЈА --- */
+.navbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5rem;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    margin: 0 auto;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ПРОМЕНА 1: ПРОФЕСИОНАЛНА ЛЕВО-ДЕСНО АНИМАЦИЈА */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+/* КРАЈ НА ПРОМЕНАТА */
+
+.lang-flags {
+    display: flex;
+    gap: 10px;
+}
+
+.lang-flags span {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+        
+.lang-flags span:hover {
+    transform: scale(1.2);
+}
+
+/* --- ГЛАВНА СОДРЖИНА (ЛЕВО) --- */
+.main-content {
+    position: relative;
+    z-index: 10;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5rem;
+    max-width: 600px;
+}
+
+.main-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.main-content h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #a0350d;
+    margin-bottom: 1.5rem;
+}
+
+.main-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: white;
+    margin-bottom: 2.5rem;
+    max-width: 450px;
+}
+
+/* --- КОПЧИЊА И MAGNETIC ЕФЕКТ --- */
+.btn {
+    display: inline-block;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    will-change: transform;
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+    overflow: hidden;
+}
+
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: -1;
+}
+
+.btn-outline:hover::before {
+    left: 0;
+}
+        
+.btn-outline:hover {
+    color: #fff;
+}
+
+.btn-solid {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 20px rgba(192, 66, 18, 0.3);
+}
+
+.btn-solid:hover {
+    background-color: #a0350d;
+    box-shadow: 0 15px 25px rgba(192, 66, 18, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- ДОЛЕН ДЕЛ --- */
+.bottom-content {
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.bottom-content h3 {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* --- СЛАЈДЕР ТОЧКИ --- */
+.slider-dots {
+    position: absolute;
+    bottom: 4rem;
+    left: 5rem;
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    opacity: 1;
+}
+
+/* --- СЕКЦИЈА ЗА МОДЕЛИ --- */
+.models-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    background-color: var(--bg-dark);
+}
+
+.models-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.model-row {
+    position: relative;
+    width: 100%;
+    height: 220px; 
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #111;
+    opacity: 0;
+    transform: translateY(60px); 
+}
+
+.models-container:hover .model-row:not(:hover) {
+    opacity: 0.3;
+    filter: grayscale(100%);
+    transition: all 0.4s ease;
+}
+
+.model-bg {
+    position: absolute;
+    top: -30%; 
+    left: 0;
+    width: 100%;
+    height: 160%; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: 1;
+}
+
+.model-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 4rem;
+}
+
+.model-title {
+    font-family: var(--font-sans);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 2px;
+    transition: var(--smooth-fade);
+    position: relative;
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.7);
+}
+
+.model-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-accent);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- ХОВЕР АНИМАЦИИ --- */
+.model-row:hover .model-title {
+    transform: translateX(20px);
+    color: var(--primary-accent);
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.9);
+}
+
+.model-row:hover .model-title::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .model-row { height: 150px; }
+    .model-content { padding-left: 2rem; }
+    .model-title { font-size: 1.5rem; }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-accent);
+}
+
+/* ========================================= */
+/* --- НОВА СЕКЦИЈА: OUR NEWEST MODELS --- */
+/* ========================================= */
+.newest-models-section {
+    background-color: var(--bg-dark);
+    padding: 6rem 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newest-title {
+    font-family: var(--font-sans);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #a0350d;
+    margin-bottom: 4rem;
+    text-transform: none;
+    letter-spacing: 1px;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 1200px; 
+    overflow: visible; 
+}
+
+.carousel-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    padding: 0 2rem;
+    will-change: transform;
+}
+
+.car-card {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: transparent;
+}
+
+.car-card .badge {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #a0350d;
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.car-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15));
+}
+
+.car-card:hover img {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.car-name {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+.car-price {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.progress-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 4rem auto 3rem auto;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 4px;
+    background-color: #d1d1d1;
+    position: relative;
+    border-radius: 2px;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%; 
+    background-color: #a0350d;
+    border-radius: 2px;
+}
+
+.btn-wrap-center {
+    text-align: center;
+}
+
+.btn-rect {
+    border-radius: 0; 
+    padding: 15px 45px;
+    background-color: #a0350d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.rent-section {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    padding: 3rem 5rem 9rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.rent-top-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    margin-bottom: 6rem;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    opacity: 0;
+    transform: translateY(80px);
+}
+
+.info-box span {
+    font-size: 1.4rem;
+    margin-top: 3px;
+}
+
+.info-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #000;
+    font-weight: 600;
+}
+
+.rent-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rent-title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #a0350d;
+    margin-bottom: 4rem;
+    letter-spacing: 1px;
+
+    opacity: 0;
+    transform: translateY(80px);
+}
+
+.rent-filters {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    transform: translateY(80px);
+}
+
+.filter-box label {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #a0350d;
+}
+
+.filter-box select {
+    width: 180px;
+    padding: 15px;
+    border: 1px solid #a0350d;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    background: #fff;
+}
+
+.category-list {
+    width: 180px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-item span {
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.category-item img {
+    width: 55px;
+    object-fit: contain;
+}
+
+.find-btn {
+    margin-top: 2rem;
+    padding: 15px 35px;
+    border: none;
+    background: #a0350d;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(80px);
+}
+
+.find-btn:hover {
+    background: #7e2909;
+}
+
+@media (max-width: 992px) {
+
+    .rent-section {
+        padding: 5rem 2rem;
+    }
+
+    .rent-top-info {
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .rent-title {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .rent-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-box select,
+    .category-list {
+        width: 260px;
+    }
+}
+
+.sticky-nav {
+
+    position: fixed;
+
+    top: -120px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 40px);
+    max-width: 1370px;
+
+    height: 72px;
+
+    padding: 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+    linear-gradient(
+        90deg,
+        #dbdbdb 0%,
+        #ececec 15%,
+        #ececec 85%,
+        #d1d1d1 100%
+    );
+
+    border-radius: 6px;
+
+    z-index: 999999;
+
+    transition:
+        top 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.45s ease,
+        transform 0.45s ease;
+
+    opacity: 0;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.08),
+        0 5px 15px rgba(0,0,0,0.04);
+
+    backdrop-filter: blur(10px);
+}
+
+/* ACTIVE */
+
+.sticky-nav.active {
+
+    top: 16px;
+
+    opacity: 1;
+}
+
+/* LINKS */
+
+.sticky-links {
+
+    display: flex;
+    align-items: center;
+
+    gap: 48px;
+
+    list-style: none;
+}
+
+.sticky-links a {
+
+    text-decoration: none;
+
+    color: #1c1c1c;
+
+    font-size: 15px;
+
+    position: relative;
+
+    transition: color 0.3s ease;
+}
+
+.sticky-links a:hover {
+
+    color: #c04212;
+}
+
+.sticky-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 100%;
+    height: 2px;
+
+    background: #c04212;
+
+    transform: scaleX(0);
+
+    transform-origin: right;
+
+    transition: transform 0.35s ease;
+}
+
+.sticky-links a:hover::after {
+
+    transform: scaleX(1);
+
+    transform-origin: left;
+}
+
+/* ACTIONS */
+
+.sticky-actions {
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+/* SEARCH */
+
+.sticky-search {
+
+    width: 210px;
+    height: 42px;
+
+    background: #cfcfcf;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 14px;
+
+    border-radius: 4px;
+}
+
+.sticky-search-icon {
+
+    width: 14px;
+    height: 14px;
+
+    fill: #555;
+
+    margin-right: 10px;
+}
+
+.sticky-search input {
+
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #222;
+
+    font-size: 14px;
+}
+
+/* BUTTON */
+
+.sticky-btn {
+
+    height: 42px;
+
+    padding: 0 42px;
+
+    border: none;
+
+    background: #c04212;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease;
+}
+
+.sticky-btn:hover {
+
+    background: #a8370d;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 25px rgba(192,66,18,0.25);
+}
+
+/* MOBILE */
+
+@media (max-width: 992px) {
+
+    .sticky-nav {
+
+        display: none;
+    }
+
+}
+.bestsellers-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. ГОРЕН ТЕМЕН ДЕЛ (ВИДЕО) */
+.video-hero-top {
+    position: relative;
+    width: 100%;
+    
+    /* 1. Зголеми го ова од 6rem на 8rem или 10rem за повеќе простор горе/долу */
+    padding: 9rem 1rem; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #111;
+    
+    /* 2. Или зголеми ја оваа вредност (на пример од 350px на 500px или повеќе) */
+    min-height: 500px; 
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(15, 15, 15, 0.85); Затемнување */
+    z-index: 2;
+}
+
+.hero-text-content {
+    position: relative;
+    z-index: 3;
+    max-width: 700px;
+}
+
+.eyebrow {
+    display: block;
+    color: #c48b71; /* Боја како на сликата */
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.main-title {
+    color: #ffffff;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.hero-desc {
+    color: #a0a0a0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 2. ДОЛЕН БЕЛ ДЕЛ (КАРТИЧКИ) */
+.bestsellers-white-bg {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 4rem 2rem;
+}
+
+.cards-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.bestsellers-white-bg .car-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #1a1a1a;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    z-index: 5;
+}
+
+.badge-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.badge-dark {
+    background-color: #000;
+    color: #fff;
+}
+
+.card-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.car-type {
+    color: var(--primary-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+}
+
+.car-name {
+    color: #111;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.car-specs {
+    display: flex;
+    gap: 1rem;
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.car-specs span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.card-divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.starting {
+    font-size: 0.6rem;
+    color: #888;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.price span {
+    font-size: 0.7rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.rent-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+
+.rent-btn:hover {
+    background-color: #9e350e;
+}
+.velocity-standard-section {
+    background-color: #ffffff; /* Чиста бела позадина како на сликата */
+    width: 100%;
+    padding: 8rem 2rem;
+    overflow: hidden;
+}
+
+.velocity-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Сплит лево/десно */
+    gap: 5rem;
+    align-items: center;
+}
+
+/* Лева страна стилови */
+.velocity-heading {
+    color: #111111;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 4px solid var(--primary-color); /* Портокаловата линија од сликата */
+    padding-left: 1.2rem;
+    margin-bottom: 3.5rem;
+}
+
+.velocity-features {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+/* Нежна анимација на иконите при hover на цела ставка */
+.feature-item:hover {
+    transform: translateX(5px);
+}
+
+.feature-icon {
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.feature-text h3 {
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.feature-text p {
+    color: #666666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+/* Десна страна (Слика и Беџ) */
+.velocity-visual {
+    position: relative;
+    width: 100%;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: visible; /* Овозможува беџот да излезе малку надвор */
+}
+
+.velocity-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: var(--smooth-zoom);
+    border-radius: 20px;
+}
+
+/* При hover врз сликата, се активира мазен зум */
+.image-wrapper:hover .velocity-img {
+    transform: scale(1.03);
+}
+
+/* Портокаловиот Satisfaction Беџ */
+.satisfaction-badge {
+    position: absolute;
+    bottom: -25px;
+    left: -25px; /* Го преклопува работ како на дизајнот */
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 2.2rem 2.5rem;
+    box-shadow: 0 10px 30px rgba(192, 66, 18, 0.3);
+    transition: var(--smooth-fade);
+    z-index: 10;
+}
+
+.image-wrapper:hover .satisfaction-badge {
+    transform: translateY(-5px);
+}
+
+.badge-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+
+.badge-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* РЕСПОНСИВ ТЕСТ (За телефони и таблети) */
+@media (max-width: 968px) {
+    .velocity-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .velocity-standard-section {
+        padding: 5rem 1.5rem;
+    }
+    
+    .satisfaction-badge {
+        left: 0;
+        bottom: -20px;
+        padding: 1.5rem 2rem;
+    }
+    
+    .badge-number {
+        font-size: 2.5rem;
+    }
+}
+
+/* СТИЛОВИ ЗА ИНТЕРЕКТИВНИТЕ СКРОЛ АНИМАЦИИ (JS) */
+.reveal-left, .reveal-right {
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left {
+    transform: translateX(-40px);
+}
+
+.reveal-right {
+    transform: translateX(40px);
+}
+
+.reveal-left.active, .reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.destinations-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.1rem;
+    font-weight: 500;
+    margin-bottom: 6rem;
+}
+
+
+
+/* Мрежа со картички */
+.places-grid {
+    display: none; /* Скриено по дифолт */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 3rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Класа за активниот таб со анимација за појавување (fade-up) */
+.places-grid.active {
+    display: grid;
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Дизајн на картичките */
+.place-card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.place-title {
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 0.5rem;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    /* Суптилна рамка која се менува на hover (како London на сликата) */
+    border: 2px solid transparent; 
+    transition: var(--smooth-fade);
+}
+
+.place-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--smooth-zoom);
+}
+
+/* Hover Анимации */
+.place-card:hover .img-wrapper {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(192, 66, 18, 0.2);
+}
+
+.place-card:hover .place-img {
+    transform: scale(1.1); /* Го користи твојот smooth-zoom преку transition */
+}
+.mesta{
+    font-size: 20px;
+    font-weight: normal;
+    color: grey;
+}
+.brands-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Горен Распоред (Текст + Автомобил) */
+.brands-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+@media (max-width: 768px) {
+    .brands-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+.section-subtitle {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-sans);
+}
+
+.brands-text {
+    color: #a0a0a0; /* Суптилно сива за подобар контраст во dark mode */
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.brands-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-car-img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Наслов "Brands" во средина */
+.brands-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+}
+
+/* Мрежа со лога */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .brands-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+    .brands-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Стил на картичките (Коцките за лога) */
+.brand-card {
+ 
+
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    transition: var(--smooth-fade);
+    cursor: pointer;
+    
+    /* Почетна состојба за скрол анимацијата */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.brand-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.9);
+    transition: var(--smooth-zoom);
+}
+
+/* Сјај и зум на Hover */
+.brand-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 25px rgba(192, 66, 18, 0.15);
+}
+
+.brand-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.05);
+}
+
+/* ========================================= */
+/* КЛАСИ ЗА СКРОЛ АНИМАЦИИ (JS)               */
+/* ========================================= */
+
+.animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fade {
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Класа која се активира кога елементот е на екран */
+.active-scroll {
+    opacity: 1;
+    transform: translate(0);
+}
+/* Твојот оригинален код (НЕЧЕПНАТ) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #c04212;
+    --text-dark: #f5f5f5;
+    --text-light: #f5f5f5;
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --bg-dark: #0b0b0b;
+    --primary-accent: #c04212;
+    --smooth-zoom: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --smooth-fade: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body, html {
+    width: 100%;
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+/* ========================================= */
+/* НОВИОТ КОД ЗА ФУТЕРОТ ЗАПОЧНУВА ТУКА      */
+/* ========================================= */
+
+.site-footer {
+    position: relative;
+    width: 100%;
+    /* ТУКА СТАВИ ГО ИМЕТО НА ТВОЈАТА СЛИКА */
+    background-image: url('../RentCar/sliki/footer/image.png'); 
+    background-size: cover;
+    background-position: center bottom;
+    background-color: var(--bg-dark); /* Fallback боја */
+    padding: 5rem 2rem 8rem 2rem; /* Повеќе простор долу за логото на сликата да се гледа */
+    color: var(--text-light);
+}
+
+/* Затемнување на сликата за текстот да биде читлив како на твојот дизајн */
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Ова го чува текстот НАД фолијата */
+}
+
+.footer-grid {
+    display: grid;
+    /* Првата колона е малку поширока поради мејлот, другите се еднакви */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+    gap: 2rem;
+}
+
+.footer-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.8rem;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-links li, 
+.footer-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ФОРМА ЗА ЕМАИЛ */
+.newsletter-form {
+    display: flex;
+    margin-top: 3rem;
+    max-width: 320px;
+    height: 45px;
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    padding: 0 1.2rem;
+    border: none;
+    background-color: #d9d9d9; /* Светло сивата боја од сликата */
+    color: #333;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    outline: none;
+}
+
+.newsletter-input::placeholder {
+    color: #777;
+}
+
+.newsletter-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    width: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    background-color: #9e350e; /* Малку потемна портокалова на hover */
+}
+
+/* РЕСПОНСИВНОСТ ЗА ТЕЛЕФОНИ И ТАБЛЕТИ */
+@media (max-width: 968px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .site-footer {
+        padding: 4rem 1.5rem;
+    }
+}
+.nav-logo, .sticky-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-family: var(--font-serif); /* Го користи Cinzel фонтот за премиум изглед */
+    transition: color 0.3s ease;
+}
+
+/* За главното мени во Херото (бидејќи е темна позадината, логото е светло) */
+.nav-logo {
+    color: var(--text-light); 
+}
+
+.nav-logo:hover {
+    color: var(--primary-color); /* Менува во портокалово на hover */
+}
+
+/* За стики менито (бидејќи позадината е светла/сива, логото е темно за да се гледа) */
+.sticky-logo {
+    color: #1c1c1c; 
+}
+
+.sticky-logo:hover {
+    color: var(--primary-color);
+}
+
+/* ========================================================== */
+/* --- МОБИЛНА ВЕРЗИЈА И ЦЕЛОСНА РЕСПОНСИВНОСТ (ПОПРАВКИ) --- */
+/* ========================================================== */
+
+/* Стилизирање на бургер иконата */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.burger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-light);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Скриени знаменца за мобилен по дифолт */
+.mobile-lang-flags {
+    display: none;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.mobile-lang-flags span {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ГЛАВЕН МЕДИЈА КВЕРИ ЗА ТАБЛЕТИ И ТЕЛЕФОНИ */
+@media (max-width: 992px) {
+    
+    /* Навигација */
+    .navbar {
+        padding: 1.5rem 2rem;
+    }
+
+    .lang-flags {
+        display: none; /* Се кријат десктоп знаменцата */
+    }
+
+    .burger-menu {
+        display: flex; /* Се појавува бургерот на десна страна */
+        z-index: 10000;
+    }
+
+    /* Претворање на менито во страничен панел (Slide-out Drawer) */
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 100%; /* ИЗМЕНЕТО: Од 75% на 100% за да го сокрие целото херо и цел екран */
+    height: 100vh;
+    background-color: #0b0b0b; /* ИЗМЕНЕТО: Ставена е чиста, полна темна боја (без проѕирност) за да не пробива херото */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 9999; /* ИЗМЕНЕТО: Многу висок индекс за ништо од херото (текст, слики, слајдери) да не излегува над менито */
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+
+
+
+
+}
+
+    /* Кога мобилното мени е активно */
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .mobile-lang-flags {
+        display: flex;
+    }
+
+    /* Анимација на бургерот во 'X' кога е отворено */
+    .burger-menu.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+        background-color: var(--primary-color);
+    }
+
+    .burger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+        background-color: var(--primary-color);
+    }
+
+    /* Херо Секција */
+    .main-content {
+        padding: 0 2rem;
+        text-align: left;
+    }
+
+    .main-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .main-content p {
+        font-size: 0.9rem;
+    }
+
+    .bottom-content h3 {
+        font-size: 1.4rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .slider-dots {
+        left: 2rem;
+        bottom: 2.5rem;
+    }
+
+    /* Новите модели слајдер за мобилен */
+    .carousel-container {
+        padding: 0 1rem;
+    }
+
+    .car-card {
+        width: 290px; /* Потесни картички соодветни за помали екрани */
+    }
+
+    .car-card img {
+        height: 140px;
+    }
+
+    /* Картичките во Best Sellers */
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.2rem;
+    }
+
+    /* Дестинации (Селектирај место) */
+    .places-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem 1.5rem;
+    }
+}
+
+/* ПРИЛАГОДУВАЊА ЗА МАЛИ ТЕЛЕФОНИ */
+@media (max-width: 576px) {
+    .main-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .newest-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .velocity-heading {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .rent-title {
+        font-size: 1.8rem;
+    }
+
+    .site-footer {
+        padding: 3rem 1.5rem 6rem 1.5rem;
+    }
+}
+
+/* КРИЕЊЕ НА ХЕРО СОДРЖИНАТА КОГА МЕНИТО Е ОТВОРЕНО */
+body.menu-open .main-content,
+body.menu-open .bottom-content,
+body.menu-open .slider-arrow,
+body.menu-open .slider-dots {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Осигуруваме дека позадината на менито е 100% чиста и темна */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: #0b0b0b !important; /* Полна црна боја, без проѕирност */
+        z-index: 9999;
+    }
+    
+    .burger-menu {
+        z-index: 10000; /* Иконата останува најгоре за да можеш да затвориш */
+    }
+}
+
+/* ГО ПРАВИ МЕНИТО СТИКИ (ФИКСИРАНО) САМО ЗА МОБИЛЕН И ТАБЛЕТ */
+@media (max-width: 992px) {
+    .navbar {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 998; /* Го држи над сите картички и текстови додека скролаш */
+        background-color: rgba(11, 11, 11, 0.92); /* Додадена позадина за да не се меша со текстовите под него кога скролаш */
+        backdrop-filter: blur(10px); /* Премиум заматување на позадината */
+        -webkit-backdrop-filter: blur(10px);
+        padding: 1.2rem 2rem !important; /* Малку потесно за да не зема премногу екран */
+    }
+}

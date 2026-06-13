@@ -1,0 +1,582 @@
+/* --- ОСНОВНИ СТИЛОВИ И ПРОМЕНЛИВИ --- */
+:root {
+    --primary-color: #c04212;
+    --primary-hover: #a8370d;
+    --text-light: #f4f4f4;
+    --text-muted: #9e9e9e;
+    --bg-dark: #0f0f11;
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* =========================================
+   ТВОЈОТ CSS ЗА МЕНИТО (ЦЕЛОСНО ЗАДРЖАН) 
+   ========================================= */
+
+.sticky-nav {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1370px;
+    height: 72px;
+    padding: 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #dbdbdb 0%, #ececec 15%, #ececec 85%, #d1d1d1 100%);
+    border-radius: 6px;
+    z-index: 999999;
+    opacity: 1;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.04);
+    backdrop-filter: blur(10px);
+    transition: top 0.3s ease, opacity 0.3s ease; /* Додадена транзиција за мазност */
+}
+
+.sticky-nav.active {
+    top: 16px;
+    opacity: 1;
+}
+
+.sticky-links {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+}
+
+.sticky-links a {
+    text-decoration: none;
+    color: #1c1c1c;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sticky-links a:hover {
+    color: #c04212;
+    transform: translateY(-2px);
+}
+
+.sticky-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: #c04212;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+}
+
+.sticky-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.sticky-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.sticky-search {
+    width: 210px;
+    height: 42px;
+    background: #cfcfcf;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 4px;
+}
+
+.sticky-search-icon {
+    width: 14px;
+    height: 14px;
+    fill: #555;
+    margin-right: 10px;
+}
+
+.sticky-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #222;
+    font-size: 14px;
+}
+
+.sticky-btn {
+    height: 42px;
+    padding: 0 42px;
+    border: none;
+    background: #c04212;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.sticky-btn:hover {
+    background: #a8370d;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(192,66,18,0.25);
+}
+
+.nav-logo, .sticky-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-family: var(--font-serif); 
+    transition: color 0.3s ease;
+}
+
+.nav-logo {
+    color: var(--text-light); 
+}
+
+.nav-logo:hover {
+    color: var(--primary-color);
+}
+
+.sticky-logo {
+    color: #1c1c1c; 
+}
+
+.sticky-logo:hover {
+    color: var(--primary-color);
+}
+
+
+/* =========================================
+   НОВИ СТИЛОВИ ЗА КОНТАКТ СЕКЦИЈАТА
+   ========================================= */
+
+.contact-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 180px 5% 100px; /* Голем горен padding за да не се преклопува со sticky nav */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Позадинска слика со темен автомобил (можеш да ја смениш со твоја) */
+    background: url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat fixed;
+}
+
+.contact-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.8) 50%, rgba(10,10,10,0.4) 100%);
+    z-index: 1;
+}
+
+.contact-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1370px;
+    width: 100%;
+}
+
+/* Лева Страна */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.accent-subtitle {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.contact-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.contact-description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 450px;
+    margin-bottom: 50px;
+}
+
+.info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px 30px;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.card-text p {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* Десна Страна - Форма */
+.contact-form-wrapper {
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 50px;
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    font-size: 1rem;
+    padding: 10px 0;
+    font-family: var(--font-sans);
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-bottom-color: var(--primary-color);
+}
+
+.form-group select {
+    appearance: none;
+    cursor: pointer;
+}
+.form-group select option {
+    background: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-checkbox input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.form-checkbox label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+.form-footer {
+    text-align: center;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* =========================================
+   КЛАСИ ЗА АНИМАЦИИ
+   ========================================= */
+.animate-on-scroll {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.fade-up { transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-right { transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-left { transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Респонзивен дизајн за помали екрани */
+@media (max-width: 1024px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .contact-title { font-size: 3.5rem; }
+}
+@media (max-width: 768px) {
+    .sticky-nav { display: none; /* Или прилагоди за мобилен */ }
+    .form-row { grid-template-columns: 1fr; gap: 20px;}
+    .contact-form-wrapper { padding: 40px 20px; }
+}
+
+/* ========================================================== */
+/* --- МОБИЛНО МЕНИ И РЕСПОНЗИВНОСТ (CONTACT US) ------------ */
+/* ========================================================== */
+
+/* Бургер икона стилови */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.burger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #1c1c1c; /* Темна боја за светлата лента */
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* КРИЕЊЕ НА СОДРЖИНАТА КОГА МЕНИТО Е ОТВОРЕНО */
+body.menu-open .contact-container,
+body.menu-open .contact-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .contact-title { font-size: 3.5rem; }
+}
+
+/* МЕДИЈА КВЕРИ ЗА ТАБЛЕТИ И МОБИЛНИ */
+@media (max-width: 992px) {
+    
+    .sticky-nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 1.2rem 2rem !important;
+        background-color: rgba(11, 11, 11, 0.92) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 998;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 1 !important;
+        transform: none !important;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .sticky-logo {
+        color: #f4f4f4; /* На мобилен логото на темната лента треба да е светло */
+    }
+
+    .burger-menu .bar {
+        background-color: #ffffff; /* Бели линии за бургерот на темна лента */
+    }
+
+    .sticky-actions {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Мобилен панел за менито - идентична црна боја */
+    .sticky-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: #0b0b0b !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 9999;
+        transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 0;
+    }
+
+    .sticky-links.active {
+        right: 0;
+    }
+
+    .sticky-links li {
+        margin: 0;
+    }
+
+    .sticky-links a {
+        color: #f5f5f5 !important;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .sticky-links a:hover {
+        color: #c04212 !important;
+    }
+
+    /* Бургер анимација во 'X' */
+    .burger-menu.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+        background-color: var(--primary-color);
+    }
+
+    .burger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+        background-color: var(--primary-color);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr; gap: 20px;}
+    .contact-form-wrapper { padding: 40px 20px; }
+}

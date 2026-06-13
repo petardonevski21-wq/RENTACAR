@@ -1,0 +1,723 @@
+/* Дефинирање на варијабли за да ти работат боите од твојот код */
+:root {
+    --primary-color: #c04212;
+    --text-dark: #ffffff; /* Ставено на бело за да се гледа на темна слика */
+    --text-light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+
+    font-family: 'Cinzel', serif;
+
+}
+/* --- ABOUT US / HERO SECTION --- */
+.meet-fleet-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    height: 100dvh;
+    
+    /* ПОПРАВЕНО: Точна патека до сликата за да се отвара на сите телефони */
+    background-image: url('../About/slikiabout/prva.png');
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+/* Овој слој прави затемнување само во долниот дел */
+.fleet-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; 
+    background: linear-gradient(to top, rgba(11, 11, 11, 0.95) 0%, rgba(11, 11, 11, 0) 100%);
+    z-index: 1;
+}
+
+.fleet-container {
+    position: relative;
+    z-index: 2; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.fleet-content {
+    max-width: 600px; 
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fleet-subheading {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.fleet-heading {
+    color: #c04212;
+    font-size: 4.5rem; 
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    letter-spacing: -1px;
+}
+
+.fleet-description {
+    color: #e0e0e0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ГЛАВНА НАВИГАЦИЈА (НАД СЛИКАТА) --- */
+.navbar {
+    position: absolute; /* Променето во absolute за да стои горе независно од flex-end */
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5rem;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    margin: 0 auto;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+
+/* --- СТИКИ НАВИГАЦИЈА --- */
+.sticky-nav {
+    position: fixed;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1370px;
+    height: 72px;
+    padding: 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #dbdbdb 0%, #ececec 15%, #ececec 85%, #d1d1d1 100%);
+    border-radius: 6px;
+    z-index: 999999;
+    transition: top 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, transform 0.45s ease;
+    opacity: 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.04);
+    backdrop-filter: blur(10px);
+}
+
+.sticky-nav.active {
+    top: 16px;
+    opacity: 1;
+}
+
+.sticky-links {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+}
+
+.sticky-links a {
+    text-decoration: none;
+    color: #1c1c1c;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.sticky-links a:hover {
+    color: #c04212;
+}
+
+.sticky-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: #c04212;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+}
+
+.sticky-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.sticky-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.sticky-search {
+    width: 210px;
+    height: 42px;
+    background: #cfcfcf;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 4px;
+}
+
+.sticky-search-icon {
+    width: 14px;
+    height: 14px;
+    fill: #555;
+    margin-right: 10px;
+}
+
+.sticky-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #222;
+    font-size: 14px;
+}
+
+.sticky-btn {
+    height: 42px;
+    padding: 0 42px;
+    border: none;
+    background: #c04212;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.sticky-btn:hover {
+    background: #a8370d;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(192,66,18,0.25);
+}
+
+/* --- РЕСПОНСИВНОСТ --- */
+@media (max-width: 992px) {
+    .sticky-nav {
+        display: none;
+    }
+} /* Поправено: Оваа заграда фалеше во твојот код! */
+
+@media (max-width: 968px) {
+    .fleet-heading {
+        font-size: 3.5rem;
+    }
+    .meet-fleet-section {
+        background-image: url('slikiabout/hero.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        height: 100dvh;
+    }
+    .navbar {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .fleet-heading {
+        font-size: 2.8rem;
+    }
+    .fleet-description {
+        font-size: 0.95rem;
+    }
+    .fleet-container {
+        padding: 3rem 1.5rem;
+    }
+    .nav-links {
+        display: none; /* Криење на менито на мобилен за да се направи hamburger menu подоцна */
+    }
+}
+.ethos-section {
+    background-color: #fafafa;
+    color: #1c1c1c;
+    padding: 6rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.ethos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Top Intro Split --- */
+.ethos-intro {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 8rem;
+}
+
+.ethos-text-content {
+    flex: 1;
+}
+
+.ethos-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #111;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.ethos-paragraph {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.ethos-quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.ethos-image-wrapper {
+    flex: 1;
+    background: #000;
+}
+
+.ethos-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* --- Bottom Pillars --- */
+.ethos-pillars-area {
+    text-align: center;
+}
+
+.pillars-heading {
+    margin-bottom: 4rem;
+}
+
+.pillars-sub {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.pillars-main {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #111;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.pillar-card {
+    background: #fff;
+    padding: 3rem 2rem;
+    border: 1px solid #eaeaea;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+}
+
+.pillar-icon {
+    width: 65px;
+    height: 65px;
+    background: #fdf3ef; /* Светло портокалова позадина за иконата */
+    color: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+.pillar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #111;
+    font-weight: 600;
+}
+
+.pillar-desc {
+    font-size: 0.9rem;
+    color: #777;
+    line-height: 1.7;
+}
+
+/* --- Анимации при скролање --- */
+.hidden-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.show-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive за новата секција --- */
+@media (max-width: 968px) {
+    .ethos-intro {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+    .ethos-quote {
+        text-align: left;
+    }
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+    .ethos-title {
+        font-size: 2rem;
+    }
+}
+.stats-section {
+    width: 100%;
+    background-color: #0b0b0b;
+    padding: 5rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.stats-container {
+    width: 100%;
+    max-width: 1370px; /* Се порамнува со макс. ширина на твоето мени */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px; /* Простор помеѓу картичките */
+}
+
+.stat-card {
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px; /* Обезбедува еднаква висина и убав правоаголен облик */
+    transition: transform 0.4s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px); /* Дискретен премиум ефект на hover */
+}
+
+/* Стилизирање на посебните позадини за секоја картичка */
+.card-dark {
+    background-color: #161616;
+}
+
+.card-light {
+    background-color: #f0f2f5;
+}
+
+.card-accent {
+    background-color: var(--primary-color); /* Ја зема твојата #c04212 боја */
+}
+
+/* Стилизирање на текстот внатре во картичките */
+.stat-subheading {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+}
+
+/* Различни бои за малите наслови во зависност од картичката */
+.card-dark .stat-subheading { color: var(--primary-color); }
+.card-light .stat-subheading { color: #c04212; }
+.card-accent .stat-subheading { color: #ffffff; }
+
+.stat-number {
+    font-size: 5.5rem; /* Големи и доминантни бројки */
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.card-dark .stat-number { color: #ffffff; }
+.card-light .stat-number { color: #1c1c1c; }
+.card-accent .stat-number { color: #ffffff; }
+
+.stat-description {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.card-dark .stat-description { color: #a0a0a0; }
+.card-light .stat-description { color: #555555; }
+.card-accent .stat-description { color: #f5f5f5; }
+
+/* РЕСПОНСИВНОСТ (За таблети и телефони да одат една под друга) */
+@media (max-width: 992px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr); /* На таблет ќе бидат 2 во ред */
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: 1fr; /* На телефон одат комплетно вертикално една под друга */
+    }
+    .stat-card {
+        min-height: 220px;
+        padding: 2.5rem 2rem;
+    }
+    .stat-number {
+        font-size: 4.5rem;
+    }
+}
+.nav-logo, .sticky-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-family: var(--font-serif); /* Го користи Cinzel фонтот за премиум изглед */
+    transition: color 0.3s ease;
+}
+
+/* За главното мени во Херото (бидејќи е темна позадината, логото е светло) */
+.nav-logo {
+    color: var(--text-light); 
+}
+
+.nav-logo:hover {
+    color: var(--primary-color); /* Менува во портокалово на hover */
+}
+
+/* За стики менито (бидејќи позадината е светла/сива, логото е темно за да се гледа) */
+.sticky-logo {
+    color: #1c1c1c; 
+}
+
+.sticky-logo:hover {
+    color: var(--primary-color);
+}
+
+/* ========================================================== */
+/* --- МОБИЛНА ВЕРЗИЈА И ЦЕЛОСНА РЕСПОНСИВНОСТ (ABOUT) ------ */
+/* ========================================================== */
+
+/* Бургер икона стилови */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.burger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* КРИЕЊЕ НА СОДРЖИНАТА КОГА МЕНИТО Е ОТВОРЕНО */
+body.menu-open .fleet-content,
+body.menu-open .pillars-section,
+body.menu-open .stats-section,
+body.menu-open .fleet-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* МЕДИЈА КВЕРИ ЗА ТАБЛЕТИ И МОБИЛНИ */
+@media (max-width: 992px) {
+    
+    /* СТИКИ МЕНИ САМО ЗА МОБИЛЕН */
+.sticky-nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.2rem 2rem !important;
+        background-color: rgba(11, 11, 11, 0.92) !important; /* Истата транспарентна црна од првата страна */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 998;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 1 !important;
+        transform: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Блага линија за премиум изглед */
+    }
+
+    .sticky-actions {
+        display: none; /* Ги криеме десктоп иконите за пребарување */
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Мобилен панел за менито */
+.sticky-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: #0b0b0b !important; /* ТОЧНАТА ЦРНА БОЈА ОД ПРВАТА СТРАНА */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 9999;
+        transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 0;
+    }
+
+    .sticky-links.active {
+        right: 0;
+    }
+
+    .sticky-links li {
+        margin: 0;
+    }
+
+.sticky-links a {
+        color: #f5f5f5 !important; /* Светла боја на текстот за да се чита убаво на црната позадина */
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    /* Бургер анимација во 'X' */
+    .burger-menu.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+        background-color: var(--primary-color);
+    }
+    .sticky-links a:hover {
+        color: #c04212 !important; /* Портокалова нијанса при hover исто како првата страна */
+    }
+    .burger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+        background-color: var(--primary-color);
+    }
+
+    /* Прилагодување на секциите за текст */
+    .fleet-content {
+        padding: 0 2rem 4rem 2rem;
+    }
+
+    .fleet-title {
+        font-size: 2.8rem;
+    }
+
+    .pillars-container {
+        padding: 4rem 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .fleet-title {
+        font-size: 2.2rem;
+    }
+    .fleet-subtitle {
+        font-size: 0.9rem;
+    }
+    .pillar-title {
+        font-size: 1.5rem;
+    }
+}

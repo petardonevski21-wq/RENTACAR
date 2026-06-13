@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Cars</title>
+    <link rel="stylesheet" href="allcars.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../LOGO/favicon_io/favicon-32x32.png">
+    <script src="allcars.js" defer></script>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <a href="../index.html" class="sticky-logo">Velora</a>
+        <ul class="sticky-links">
+            <li><a href="#">Car types</a></li>
+            <li><a href="#">Car brands</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="../About/about.html">About us</a></li>
+            <li><a href="../Contact/contact.html">Contact us</a></li>
+        </ul>
+        
+        <div class="sticky-actions">
+            <div class="sticky-search">
+                <svg class="sticky-search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" placeholder="Search...">
+            </div>
+            <button class="sticky-btn">Book Now</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Rent luxury car in the whole world!</h1>
+    </header>
+
+    <main class="container">
+        <aside class="sidebar">
+            <h2>Filters</h2>
+            
+            <div class="filter-group">
+                <label>Car types</label>
+                <select class="select-wrapper" id="car-type">
+                    <option value="all">All cars</option>
+                    <option value="cabrio">Cabrio</option>
+                    <option value="coupe">Coupe</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Brand</label>
+                <select class="select-wrapper" id="car-brand">
+                    <option value="all">All brands</option>
+                    <option value="porsche">Porsche</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="bmw">BMW</option>
+                    <option value="ferrari">Ferrari</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Price from, to</label>
+                <div class="input-group">
+                    <input type="number" placeholder="from 20$" id="price-from">
+                    <input type="number" placeholder="to 1000$" id="price-to">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>HP</label>
+                <div class="input-group">
+                    <input type="number" placeholder="from 200" id="hp-from">
+                    <input type="number" placeholder="to 500" id="hp-to">
+                </div>
+            </div>
+
+            <button class="clear-btn" onclick="clearFilters()">Clear filter</button>
+        </aside>
+
+        <section class="car-grid" id="car-grid">
+            </section>
+    </main>
+</body>
+</html>

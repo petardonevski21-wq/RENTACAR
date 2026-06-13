@@ -1,0 +1,542 @@
+/* --- Глобални стилови и ресетирање --- */
+:root {
+    --primary-color: #111;
+    --secondary-text: #666;
+    --accent-color: #a84200; 
+    --border-color: #e0e0e0;
+    --bg-color: #faf9f8; 
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    margin-top: 100px; /* ДОДАДЕНО: Го спушта цел контејнер надолу за да не го покрива менито */
+}
+
+/* --- Заглавие --- */
+.page-header {
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--secondary-text);
+    text-transform: uppercase;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: -5px;
+}
+
+/* --- Конфигуратор (Grid) --- */
+.configurator {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+/* Секција за сликата со позиционирани стрелки */
+.car-preview {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eeeeee;
+}
+
+.car-preview img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Стилизирање на стрелките */
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    font-size: 1.5rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    z-index: 5;
+    color: var(--primary-color);
+}
+
+.arrow-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+.config-options {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- Опции: Бои и Тркала --- */
+.option-group h3 {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.swatch {
+    width: 45px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: transform 0.2s, outline 0.2s;
+}
+
+.swatch.active {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+    border-color: transparent;
+}
+
+.selected-text {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+.wheel-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wheel-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: border 0.2s;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.wheel-card.active {
+    border-color: var(--primary-color);
+}
+
+.wheel-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #eee; 
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.check-icon {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.wheel-card:not(.active) .check-icon {
+    display: none;
+}
+
+/* --- Цена и Копче --- */
+.checkout-section {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+.msrp {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.price {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+}
+
+.reserve-btn {
+    width: 100%;
+    padding: 18px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reserve-btn:hover {
+    background-color: #8c3600;
+}
+
+/* --- Спецификации --- */
+.specifications {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #ebdada;
+    border-bottom: 1px solid #ebdada;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    border-left: 1px solid var(--border-color);
+}
+
+.spec-item:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+.spec-label {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--secondary-text);
+}
+
+.spec-value {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.spec-desc {
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+}
+
+/* --- Слични Автомобили (ЦЕНТРИРАНИ ЕЛЕМЕНТИ) --- */
+.similar-cars {
+    margin-top: 60px;
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center; /* Центрирање на колоните */
+}
+
+.car-card {
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center; /* Текстот оди во средина */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Сликите и насловите одат во средина */
+}
+
+.car-card img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.car-card:hover img {
+    transform: scale(1.03);
+}
+
+.car-card h4 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.car-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* --- Футер --- */
+.site-footer {
+    background-color: var(--bg-color);
+    padding: 40px 20px;
+    border-top: 1px solid #ebdada;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand h2 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.footer-brand p {
+    font-size: 0.7rem;
+    color: var(--secondary-text);
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--secondary-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Респонзивност --- */
+@media (max-width: 992px) {
+    .configurator {
+        grid-template-columns: 1fr;
+    }
+    .specifications {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+    }
+    .spec-item:nth-child(3) {
+        border-left: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .cars-grid {
+        grid-template-columns: 1fr;
+    }
+    .specifications {
+        grid-template-columns: 1fr;
+    }
+    .spec-item {
+        border-left: none !important;
+        padding: 0 !important;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* --- Мени --- */
+.sticky-nav {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1370px;
+    height: 72px;
+    padding: 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #dbdbdb 0%, #ececec 15%, #ececec 85%, #d1d1d1 100%);
+    border-radius: 6px;
+    z-index: 999999;
+    opacity: 1;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.04);
+    backdrop-filter: blur(10px);
+    transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+.sticky-nav.active {
+    top: 16px;
+    opacity: 1;
+}
+
+.sticky-links {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+}
+
+.sticky-links a {
+    text-decoration: none;
+    color: #1c1c1c;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sticky-links a:hover {
+    color: #c04212;
+    transform: translateY(-2px);
+}
+
+.sticky-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: #c04212;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+}
+
+.sticky-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.sticky-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.sticky-search {
+    width: 210px;
+    height: 42px;
+    background: #cfcfcf;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 4px;
+}
+
+.sticky-search-icon {
+    width: 14px;
+    height: 14px;
+    fill: #555;
+    margin-right: 10px;
+}
+
+.sticky-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #222;
+    font-size: 14px;
+}
+
+.sticky-btn {
+    height: 42px;
+    padding: 0 42px;
+    border: none;
+    background: #c04212;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.sticky-btn:hover {
+    background: #a8370d;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(192,66,18,0.25);
+}
+
+.nav-logo, .sticky-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-family: var(--font-serif); 
+    transition: color 0.3s ease;
+}
+
+.nav-logo {
+    color: var(--text-light); 
+}
+
+.nav-logo:hover {
+    color: var(--primary-color);
+}
+
+.sticky-logo {
+    color: #1c1c1c; 
+}
+
+.sticky-logo:hover {
+    color: var(--primary-color);
+}
