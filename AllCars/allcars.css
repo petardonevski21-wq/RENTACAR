@@ -307,12 +307,35 @@ h1 {
     margin-top: auto;
 }
 
-/* Респонзивност за помали екрани */
+/* =========================================
+   МОБИЛНА И ТАБЛЕТ ВЕРЗИЈА
+   ========================================= */
+
+/* Криење на бургер менито на десктоп */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000000;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 2px;
+    background-color: #1c1c1c;
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    display: block;
+    border-radius: 2px;
+}
+
+/* ПОПРАВКА: Филтрите (да не идат врз сликите при скролање) */
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
     }
     .sidebar {
+        position: relative; /* Го решава проблемот со преклопувањето */
         width: 100%;
         border-right: none;
         border-bottom: 1px dotted #ccc;
@@ -322,5 +345,103 @@ h1 {
     }
     .input-group input {
         width: 100%;
+    }
+}
+
+/* ГЛАВНА МОБИЛНА ЛОГИКА ЗА МЕНИТО */
+@media (max-width: 1024px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .sticky-nav {
+        justify-content: space-between;
+        padding: 0 24px;
+        width: calc(100% - 30px);
+    }
+
+    .sticky-links, .sticky-actions {
+        position: fixed;
+        right: -100%;
+        opacity: 0;
+        transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease;
+    }
+
+    .sticky-links {
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(245, 245, 245, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        z-index: 999990;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sticky-links a {
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    .sticky-actions {
+        bottom: 15%;
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 999991;
+    }
+
+    .sticky-search {
+        width: 80%;
+        max-width: 320px;
+        background: #e0e0e0;
+    }
+
+    .sticky-btn {
+        width: 80%;
+        max-width: 320px;
+    }
+
+    /* Активација кога ќе се кликне бургерот */
+    .sticky-nav.menu-open .sticky-links,
+    .sticky-nav.menu-open .sticky-actions {
+        right: 0;
+        opacity: 1;
+    }
+
+    /* Криење на Book Now копчето кога е отворено менито */
+    .sticky-nav.menu-open .sticky-btn {
+        display: none;
+    }
+
+    /* Анимација на Хамбургер иконата во "X" */
+    .sticky-nav.menu-open .hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .sticky-nav.menu-open .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .sticky-nav.menu-open .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Целосно криење на search барот на мобилен и таблет */
+    .sticky-search {
+        display: none !important;
     }
 }

@@ -79,4 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ПОПРАВЕНО: Логика за мобилното бургер мени (сега е ВНАТРЕ во главната функција)
+    const hamburger = document.getElementById('hamburger');
+    const body = document.body;
+
+    if(hamburger) {
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('menu-open');
+            body.classList.toggle('no-scroll');
+        });
+    }
+
 });
