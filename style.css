@@ -1779,6 +1779,11 @@ body, html {
         font-size: 0.9rem;
     }
 
+    /* Го крие копчето "Learn more" на мобилен (го остава "Find your car" непроменето) */
+    .gsap-btn-wrap {
+        display: none;
+    }
+
     .bottom-content h3 {
         font-size: 1.4rem;
         text-align: center;
@@ -1795,18 +1800,36 @@ body, html {
         padding: 0 1rem;
     }
 
-    .car-card {
-        width: 290px; /* Потесни картички соодветни за помали екрани */
+    .carousel-track {
+        gap: 1.5rem; /* Помал раздел меѓу картичките соодветен за пошироки мобилни картички */
+         padding: 0; 
     }
 
-    .car-card img {
+    .progress-wrapper {
+        padding: 0 1rem; /* Иста маргина како carousel-container за да не допира до рабовите на екранот */
+         margin: 2.5rem auto 2rem auto;
+    }
+
+    .carousel-track .car-card {
+   
+          width: clamp(230px, 78vw, 300px);
+    }
+
+    .carousel-track .car-card img {
         height: 140px;
     }
 
     /* Картичките во Best Sellers */
     .cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 1.2rem;
+    }
+
+    .bestsellers-white-bg .car-card {
+        width: 100%;
+        max-width: 420px; /* Ги центрира картичките наместо да се потпираат на grid колони */
     }
 
     /* Дестинации (Селектирај место) */
